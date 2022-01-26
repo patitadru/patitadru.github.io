@@ -1,0 +1,41 @@
+/*  <!-- Patricia Idrugo
+        CIS 114 Homework 
+    -->
+*/
+body{
+    background-color: rgb(248, 165, 179);
+    font-style: italic;
+    font-size: 18px;
+}
+
+table, td, th {  
+    border: 2px solid #ddd;
+    text-align: left;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 60%;
+  }
+
+.left{
+    width: 48%;
+    float: left;
+}
+.right{
+    width: 48%;
+    float: right;
+}
+.border{
+    border: 5px solid #fce1e1;
+}
+.hafWidth{
+    width:50%;
+    margin: 0 auto;
+}
+
+div  {   
+        padding: 10px;
+      }
+      
+     
