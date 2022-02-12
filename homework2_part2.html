@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Adder</title>
+    <style>
+        /* Patricia Idrugo 
+   CIS 114
+*/
+        body {
+            background-color: rgb(192, 251, 255);
+            font: 14pt cursive;
+        }
+
+        #main {
+            border: 2px solid black;
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        input {
+            font-size: 1.1em;
+        }
+
+        button {
+            width: 60px;
+            font-size: 1.1em;
+            background-color: antiquewhite;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="main">
+
+        <input id="num1" type="text" size="5">
+        <br>
+        <input id="num2" type="text" size="5">
+        <br>
+
+        <input id="num3" type="text" size="5">
+        <br>
+        <div id="result">
+
+        </div>
+        <a href="index.html">Back</a>
+
+    </div>
+
+    <script>
+        document.getElementById('num1').addEventListener('keyup', (e) => {
+            displayResults();
+        });
+        document.getElementById('num2').addEventListener('keyup', (e) => {
+            displayResults();
+        });
+        document.getElementById('num3').addEventListener('keyup', (e) => {
+            displayResults();
+        });
+
+        function displayResults() {
+            const num1 = document.getElementById('num1').value;
+            const num2 = document.getElementById('num2').value;
+            const num3 = document.getElementById('num3').value;
+            if (num1 && num2 && num3) {
+                // compute sum, average, product, smallest and highest
+                const n1 = parseInt(num1, 10);
+                const n2 = parseInt(num2, 10);
+                const n3 = parseInt(num3, 10);
+                if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+                    document.getElementById('result').innerHTML = "All inputs should be valid!";
+                    return;
+                }
+
+                const sum = getSum(n1, n2, n3);
+                const product = getProduct(n1, n2, n3);
+                const average = (sum / 3.0).toFixed(2);
+                const smallest = Math.min(n1, n2, n3);
+                const highest = Math.max(n1, n2, n3);
+                let result = `<span>Sum: ${sum}</span><br/>`;
+                result += `<span>Average: ${average}</span><br/>`;
+                result += `<span>Product: ${product}</span><br/>`;
+                result += `<span>Smallest: ${smallest}</span><br/>`;
+                result += `<span>Highest: ${highest}</span><br/>`;
+                document.getElementById('result').innerHTML = result;
+            } else {
+                // show error mesage
+                document.getElementById('result').innerHTML = "All inputs should be valid!";
+            }
+        }
+
+        function getSum(n1, n2, n3) {
+            return n1 + n2 + n3;
+        }
+
+        function getProduct(n1, n2, n3) {
+            return n1 * n2 * n3;
+        }
+
+    </script>
+</body>
+
+</html>
