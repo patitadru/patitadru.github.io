@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="exercise using function average" />
+    <title>Function - Average</title>
+
+    <script>
+      var price1 = 20.99;
+      var price2 = 12.75;
+      var price3 = 9.95;
+      var price4 = 35.89;
+
+      function onSubmitClick() {
+        console.log("onSubmitClick");
+        document.getElementById("errOut").innerHTML = "";
+
+        var itemQty1 = document.getElementById("itemQty1").value;
+        var itemQty2 = document.getElementById("itemQty2").value;
+        var itemQty3 = document.getElementById("itemQty3").value;
+        var itemQty4 = document.getElementById("itemQty4").value;
+
+        if (itemQty1 < 0 || itemQty2 < 0 || itemQty3 < 0 || itemQty4 < 0) {
+          var errMsg =
+            "<span style='font-weight: bold; color: red; font-size: 14px;'>Please use non negative quantity to continue</span>";
+
+          document.getElementById("errOut").innerHTML = errMsg;
+          return;
+        }
+
+        document.getElementById("item1SoldQty").value = itemQty1;
+        document.getElementById("item2SoldQty").value = itemQty2;
+        document.getElementById("item3SoldQty").value = itemQty3;
+        document.getElementById("item4SoldQty").value = itemQty4;
+
+        var item1Total = price1 * itemQty1;
+        var item2Total = price2 * itemQty2;
+        var item3Total = price3 * itemQty3;
+        var item4Total = price4 * itemQty4;
+
+        document.getElementById("item1Total").value = item1Total.toFixed(2);
+        document.getElementById("item2Total").value = item2Total.toFixed(2);
+        document.getElementById("item3Total").value = item3Total.toFixed(2);
+        document.getElementById("item4Total").value = item4Total.toFixed(2);
+
+        var totalSold = item1Total + item2Total + item3Total + item4Total;
+
+        document.getElementById("totalSold").value = totalSold.toFixed(2);
+
+        var totalEarnings = totalSold * 0.09 + 250;
+
+        document.getElementById("totalEarnings").value =
+          totalEarnings.toFixed(2);
+      }
+
+      function res() {
+        document.getElementById("errOut").innerHTML = "";
+        document.getElementById("width").focus();
+      }
+
+      function onResetClick() {
+        document.getElementById("errOut").innerHTML = "";
+      }
+    </script>
+
+    <style>
+      input {
+        text-align: right;
+      }
+      body {
+        background-color: #f5f5dc;
+      }
+      .body {
+        width: 350px;
+        margin: 0px auto;
+      }
+      table,
+      td {
+        border: 0px;
+      }
+    </style>
+  </head>
+
+  <body onload="document.getElementById('width').focus();">
+    <section class="body">
+      <h1>Homework 3 - Part 2</h1>
+
+      <form id="myForm">
+        <table>
+          <tr>
+            <td>Seller's Name:</td>
+            <td><input id="width" type="text" /></td>
+          </tr>
+
+          <tr>
+            <td>Item 1:</td>
+
+            <td><input id="itemQty1" type="number" /></td>
+          </tr>
+
+          <tr>
+            <td>Item 2:</td>
+            <td><input id="itemQty2" type="number" /></td>
+          </tr>
+
+          <tr>
+            <td>Item 3:</td>
+
+            <td><input id="itemQty3" type="number" /></td>
+          </tr>
+
+          <tr>
+            <td>Item 4</td>
+            <td><input id="itemQty4" type="number" /></td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div id="errOut"></div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="button" value="Submit" onclick="onSubmitClick();" />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <input type="reset" value="reset" onclick="onResetClick();" />
+            </td>
+          </tr>
+        </table>
+
+        <table>
+          <tr>
+            <th>Item#</th>
+            <th>Price</th>
+            <th>Qty Sold</th>
+            <th>Total $</th>
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>$20.99</td>
+
+            <td><input id="item1SoldQty" type="text" readonly /></td>
+            <td><input id="item1Total" type="text" readonly /></td>
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>$12.75</td>
+
+            <td><input id="item2SoldQty" type="text" readonly /></td>
+            <td><input id="item2Total" type="text" readonly /></td>
+          </tr>
+
+          <tr>
+            <td>3:</td>
+            <td>$9.95</td>
+
+            <td><input id="item3SoldQty" type="text" readonly /></td>
+            <td><input id="item3Total" type="text" readonly /></td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>$35.89</td>
+            <td><input id="item4SoldQty" type="text" readonly /></td>
+            <td><input id="item4Total" type="text" readonly /></td>
+          </tr>
+
+          <tr>
+            <td colspan="3">Total Amount Sold</td>
+            <td>
+              <input id="totalSold" type="text" readonly />
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="3">Total Weekly Earnings</td>
+            <td>
+              <input id="totalEarnings" type="text" readonly />
+            </td>
+          </tr>
+        </table>
+      </form>
+    </section>
+  </body>
+</html>

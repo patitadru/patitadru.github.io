@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="utf-8">
+<meta name="description" content="exercise using function average">
+<title>Function -  Average</title>
+    
+<script>     
+
+      function finalAverage ()
+      { 
+
+          // reset error
+        document.getElementById("errOut").innerHTML = "";
+
+        
+        var hwAvg = 0;
+        var midExam = 0;
+        var finalExam = 0;
+        var parTicipation = 0;
+        var Average = (hwAvg, midExam, finalExam, parTicipation);
+        var calAverage =0;
+
+ 
+        hwAvg = document.getElementById("homework-avg").value;
+        midExam = document.getElementById("mid-exam-grade").value;
+        finalExam = document.getElementById("final-exam-grade").value;
+        parTicipation = document.getElementById("participation-grade").value;
+
+
+        if(hwAvg !='' && midExam!=''&& finalExam!='' && parTicipation!=''){
+             calAverage=(0.5 * hwAvg) + (0.2 * midExam) + (0.2 * finalExam) + (0.1 * parTicipation);
+
+      document.getElementById("final-average").value = calAverage;
+        
+
+        if(calAverage>=90 && calAverage<=100){
+
+
+   document.getElementById("final-grade").innerHTML = 'Grade is A';
+        }else if(calAverage>=80 && calAverage<=89){
+document.getElementById("final-grade").innerHTML = 'Grade is B';
+        }else if(calAverage>=70 && calAverage<=79){
+document.getElementById("final-grade").innerHTML = 'Grade is C';
+        }else if(calAverage>=60 && calAverage<=69){
+document.getElementById("final-grade").innerHTML = 'Grade is D. Student must retake the course.';
+        }else if(calAverage>=0 && calAverage<=59){
+document.getElementById("final-grade").innerHTML = 'Grade is F. Student must retake the course.';
+        }
+      }
+
+
+        var errMsg1 = "<span style='font-weight: bold; color: red; font-size: 20px;'>homework average is invalid</span>";
+        var errMsg2 = "<span style='font-weight: bold; color: red; font-size: 20px;'>midterm is Invalid</span>";
+        var errMsg3 = "<span style='font-weight: bold; color: red; font-size: 20px;'>final is Invalid</span>";
+        var errMsg4 = "<span style='font-weight: bold; color: red; font-size: 20px;'>participation is Invalid</span>";
+        
+ 
+        if(hwAvg  % 1 !=0){
+          
+           document.getElementById("errOut").innerHTML = errMsg1;
+                document.getElementById("final-average").value = '';
+        }else if(midExam  % 1 !=0){
+           document.getElementById("errOut").innerHTML = errMsg2;
+                document.getElementById("final-average").value = '';
+        }else if(finalExam  % 1 !=0){
+           document.getElementById("errOut").innerHTML = errMsg3;
+                document.getElementById("final-average").value = '';
+        }else if(parTicipation  % 1 !=0){
+           document.getElementById("errOut").innerHTML = errMsg4;
+                document.getElementById("final-average").value = '';
+        }
+
+      }
+
+      function res() {
+           document.getElementById("errOut").innerHTML = "";
+           document.getElementById("width").focus();
+                     }
+
+</script> 
+
+     <style>
+      input {text-align: right;}
+      body {background-color: #f5f5dc;}
+      .body { width: 350px; margin: 0px auto;}
+      table, td {border: 0px;}
+    </style>
+
+  </head>
+
+  <body >
+
+
+ <section class="body">
+
+      <h3>Student Grades</h3>
+
+      <p><b>You must enter all the grades to be able to calculate the final average. To clear the fields click reset.</b></p>
+
+      <form id="myForm">
+         <table>
+
+            <tr>
+                <td>Enter Homework Average:</td>
+                <td><input id="homework-avg" type="text" onkeyup="finalAverage();"></td>
+           </tr>
+
+           <tr>    
+                <td>Enter Mid Exam Grade:</td>
+
+                <td><input id="mid-exam-grade" type="text" onkeyup="finalAverage();"></td>
+           </tr>
+
+           <tr>
+            <td>Enter Final Exam Grade:</td>
+            <td><input id="final-exam-grade" type="text" onkeyup="finalAverage();"></td>
+       </tr>
+
+       <tr>    
+            <td>Enter Participation Grade:</td>
+
+            <td><input id="participation-grade" type="text" onkeyup="finalAverage();"></td>
+       </tr>
+
+
+           <tr>    
+          
+                <td>Final Average</td>
+                <td><input id="final-average" type="text" readonly></td>
+            </tr>
+
+             <tr>   
+
+             <td colspan="2"><input type="reset" value="reset" onclick="res();" /></td>
+
+            </tr>
+
+          </table>
+
+      </form>
+
+<div id ="errOut"></div> 
+
+<div id="final-grade" style="font-weight: bold; color: #000000; font-size: 20px;"></div>
+
+</section>
+
+</body>
+
+</html>
