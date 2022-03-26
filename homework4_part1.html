@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head> 
+<meta charset="utf-8">
+<meta name="description" content="exercises using looping statements">
+<title>Looping Statements</title>
+
+<style>
+body {background-color:#f3dcf5;
+ width: 415px; margin: 0px auto;}
+
+</style>
+     
+</head>
+
+<body>
+<main>
+
+ <h2>Looping Statements</h2>
+ 
+ <script>
+        var sum = 0;
+   
+        var numArray=[];
+
+        var product = 1;
+
+        for (var i = 5; i <= 25; i++) {
+         numArray.push(i);
+        }
+        console.log(numArray);
+//alert(numArray.length);
+        for ( var i = 0; i <= numArray.length; i ++ )
+        { 
+        // alert(i);
+         if(i%4==0){
+         console.log(i);
+         sum +=numArray[i];
+         product *=numArray[i];
+         }
+        //sum += number;
+        }
+       // alert(product);
+        document.write( "The sum of the 4th integers " +  "from 5 to 25 inclusive is " +
+                   sum ); 
+
+           product=product.toLocaleString();
+//alert(product);
+        document.write( "<br>The product of the 4th integers " +  "from 5 to 25 inclusive is " +
+                   product ); 
+
+        var numArray2=[];
+      for (var i = 3; i <= 18; i++) {
+         numArray2.push(i);
+        }
+         console.log(numArray2);
+
+         var i = 0;
+         var newSum=0;
+         var newProduct=1;
+        do {
+
+          if(i%3==0){
+         //alert(numArray2[i]);
+         newSum +=numArray2[i];
+         newProduct *=numArray2[i];
+         }
+       
+         i++;
+        }
+      while (i < numArray2.length);
+
+       document.write( "<br>The sum of the 3rd integers " +  "from 3 to 18 inclusive is " +
+                   newSum ); 
+
+           newProduct=newProduct.toLocaleString();
+//alert(product);
+        document.write( "<br>The product of the 3rd integers " +  "from 3 to 18 inclusive is " +
+                   newProduct ); 
+        
+ </script>
+
+</main>
+<a href="hw4.html">Back </a>
+
+</body>
+</html>
