@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Part 1</title>
+</head>
+<body>
+<h1>Part 1</h1>
+
+<form method="post" action="form-get.html" id="form">
+    <div>
+    <label>Name</label>
+  <input type="text" name="name" id="name" required>
+        <div id="name_error" style="color: red;"></div>
+    </div>
+    <div>
+        <h3>Gender</h3>
+        <label>Male</label>
+        <input type="radio" value="male" class="radio" id="gender_male" name="gender" required>
+        <label>Female</label>
+        <input type="radio" value="female" class="radio"  id="gender_female" name="gender" required>
+        <div id="radio_error" style="color: red;"></div>
+    </div>
+
+    <div>
+        <h3>Currently studying?</h3>
+        <label>Yes</label>
+        <input type="checkbox" value="yes" id="studying_yes" name="studying">
+        <label>No</label>
+        <input type="checkbox" value="no" id="studying_no" name="studying">
+        <div id="check_error" style="color: red;"></div>
+    </div>
+    <div>
+        <h3>Current Country</h3>
+        <label>Select Country</label>
+        <select name="country" id="country" required>
+            <option value="">Select Country</option>
+            <option value="United States of America">United States of America</option>
+            <option value="United Kingdom">United Kingdom</option>
+            <option value="India">India</option>
+            <option value="South Africa">South Africa</option>
+            <option value="Canada">Canada</option>
+        </select>
+        <div id="drop_error" style="color: red;"></div>
+    </div>
+    <div>
+        <button type="submit" name="submit" id="submit_button" value="Submit">Submit</button>
+    </div>
+</form>
+
+<script>
+var button=document.getElementById('submit_button');
+
+
+button.onclick=function () {
+
+  if(document.getElementById('name').value ==''){
+      document.getElementById('name_error').innerHTML='Please fill name';
+      return false;
+  }else{
+      document.getElementById('name_error').innerHTML='';
+  }
+
+
+    if(document.getElementById('gender_male').checked || document.getElementById('gender_female').checked){
+        document.getElementById('radio_error').innerHTML='';
+    }else{
+
+        document.getElementById('radio_error').innerHTML='Please select gender';
+        return false;
+    }
+
+    if(document.getElementById('studying_no').checked || document.getElementById('studying_yes').checked){
+        document.getElementById('check_error').innerHTML='';
+    }else{
+
+        document.getElementById('check_error').innerHTML='Please yes or no';
+        return false;
+    }
+
+    if(document.getElementById('country').value!=''){
+        document.getElementById('drop_error').innerHTML='';
+    }else{
+
+        document.getElementById('drop_error').innerHTML='Please select country';
+        return false;
+    }
+
+}
+</script>
+</body>
+</html>
