@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+   Search occurences
+</h1>
+<form>
+    <textarea name="input_text" id="input_text" placeholder="Please type text to be searched from"  style="width: 30%"></textarea><br>
+    <input type="text"   name="search" id="search" placeholder="Enter a character to search for" style="width: 30%" ><br>
+
+
+    <div style="color: red;display: none" id="warning"></div><br>
+
+    <button type="button" id="submit_button">Submit</button>
+</form>
+<div>
+    <p>Occurrences Found</p>
+    <textarea name="found_result" id="found_result" disabled  style="width: 30%"></textarea>
+</div>
+<script type="text/javascript">
+
+    var button = document.getElementById('submit_button');
+
+    button.onclick=function () {
+
+
+        var search = document.getElementById('search').value;
+
+        var input_text = document.getElementById('input_text').value;
+
+        if(search =='' || input_text==''){
+            document.getElementById('warning').style.visibility='visible';
+            document.getElementById('warning').innerHTML='Please fill all the fields';
+            return false;
+        }else {
+            document.getElementById('warning').innerHTML = '';
+            document.getElementById('warning').style.visibility = 'hidden';
+            var count = 0;
+
+            var key = search.toLowerCase().charAt(0);
+            key = key.toLowerCase();
+
+            var stringToSearch = input_text;
+            stringToSearch = stringToSearch.toLowerCase();
+
+
+            for (i = 0; i < stringToSearch.length; i++) {
+
+                if (stringToSearch.charAt(i) == key)
+                    count++;
+            }
+
+            if (count == 0) {
+                window.open('patty-part-2-not-found.html?char='+key,'', 'width = 300, height = 100');
+                document.getElementById("found_result").value = key + " not found";
+            } else {
+
+
+                document.getElementById("found_result").value = count +
+                    " occurrence(s) of " + key + " found";
+            }
+
+        }
+    }
+</script>
+
+<br/>
+     <br/>
+     <a href="hw6.html">Back to homework 6</a>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="search_text">
+
+</h1>
+<script>
+    const params = new URLSearchParams(window.location.search)
+    var key='';
+    for (const param of params) {
+
+        key=param[1];
+
+    }
+
+    document.getElementById("search_text").innerHTML ="Searched character "+ key + " not found";
+</script>
+</body>
+</html>
