@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Project 2 Cookies</title>
+</head>
+<body onload="checkCookie();">
+<h1>Saving and retrieving cookies</h1>
+
+
+<div id="form">
+<label>Type Name</label>
+<input type="text" name="name" id="name">
+
+
+<div>
+
+    <label>Type Username</label>
+    <input type="text" name="username" id="username">
+</div>
+<div>
+    <button type="button" onclick="saveCookie('name','username');">Save Cookie</button>
+</div>
+<hr>
+<div>
+    <button type="button" onclick="checkCookie();">Get Cookie</button>
+</div>
+</div>
+<div>
+    <h2 id="show_name"></h2>
+</div>
+<div>
+    <h2 id="show_username"></h2>
+</div>
+<script>
+    function saveCookie(nameVal,usernameVal){
+
+       var name=document.getElementById('name').value;
+       var username=document.getElementById('username').value;
+
+
+
+        document.cookie = nameVal + "=" + name + ";" + '' ;
+        document.cookie = usernameVal + "=" + username;
+
+
+    }
+
+    function getCookie(name) {
+        var name =   name + "=";
+        var nameval =  '';
+
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+      //  alert(ca[0]);
+
+        for(let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+
+            }
+
+        }
+return '';
+
+    }
+    function checkCookie() {
+        let user = getCookie("name");
+
+        var show_name=document.getElementById('show_name');
+
+        if (user != "" ) {
+            var form=document.getElementById('form');
+            form.style.display = "none";
+            show_name.innerHTML="Welcome back "+ user;
+
+        } else {
+            var form=document.getElementById('form');
+            form.style.display = "block";
+        }
+    }
+
+
+</script>
+
+</body>
+
+
+<br/>
+     <br/>
+     <a href="hw7.html">Back to homework 7</a>
+
+
+</html>

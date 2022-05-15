@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objet Model</title>
+
+
+    <style>
+        .bg-light-blue {
+            background-color: #DEF3FA;
+
+        }
+        .bg-green {
+            background-color: #ACD29A;
+
+        }
+        .bg-yellow {
+            background-color: #FBC343;
+
+        }
+        .bg-pink {
+            background-color: #E9738D;
+
+        }
+
+        .text-light-blue {
+            color: #4268AE;
+
+        }
+
+        .text-orange {
+            color: #D84B27;
+
+        }
+        .text-red {
+            color: red;
+
+        }
+        .text-pink {
+            color: #E9738D;
+
+        }
+      .font-20{
+          font-size: 20px;
+      }
+        .font-30{
+            font-size: 30px;
+        }
+        .font-40{
+            font-size: 40px;
+        }
+
+        .italic{
+            font-style: italic;
+        }
+
+        .bold{
+            font-weight:bold ;
+        }
+
+        .small-caps{
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+<body>
+<h1>Page Styling</h1>
+
+<form method="post" action="" id="form">
+
+    <div>
+        <h3>Background Color</h3>
+        <label style="background-color: #DEF3FA">Light Blue </label>
+        <input type="radio" value="#DEF3FA" onclick="changeBackground(this);"  class="bg-light-blue" name="background_color" >
+        <br>
+        <label  style="background-color: #ACD29A">Green</label>
+        <input type="radio" value="#ACD29A"  onclick="changeBackground(this);" class="bg-green"  name="background_color" >
+        <br>
+        <label  style="background-color: #FBC343">Yellow</label>
+        <input type="radio" value="#ACD29A"  onclick="changeBackground(this);" class="bg-yellow"  name="background_color" >
+        <br>
+        <label  style="background-color: #E9738D">Pink</label>
+        <input type="radio" value="#ACD29A"  onclick="changeBackground(this);" class="bg-pink"  name="background_color" >
+        <br>
+
+    </div>
+
+    <div>
+        <h3>Text Color</h3>
+        <label style="background-color: #4268AE">Blue</label>
+        <input type="radio" value="#4268AE" onchange="changeTextColor(this);"  class="text-light-blue" name="text_color" >
+        <br>
+        <label  style="background-color: #D84B27">Orange</label>
+        <input type="radio" value="#D84B27" onchange="changeTextColor(this);" class="text-orange"  name="text_color" >
+        <br>
+        <label  style="background-color: #ee5656">Red</label>
+        <input type="radio" value="#ee5656" onchange="changeTextColor(this);" class="text-red"  name="text_color" >
+        <br>
+        <label  style="background-color: #E9738D">Pink</label>
+        <input type="radio" value="#ACD29A" onchange="changeTextColor(this);" class="text-pink"  name="text_color" >
+        <br>
+
+    </div>
+
+    <div>
+        <h3>Font Size</h3>
+        <label>20px</label>
+        <input type="checkbox" value="20" onclick="changeFontSize(this);" class="font-20" name="font-size" required>
+        <br>
+        <label>30px</label>
+        <input type="checkbox" value="30" onclick="changeFontSize(this);" class="font-30" name="font-size">
+        <br>
+        <label>40px</label>
+        <input type="checkbox" value="40" onclick="changeFontSize(this);" class="font-40" name="font-size">
+        <br>
+
+
+
+    </div>
+
+
+    <div>
+        <h3>Font Style</h3>
+        <label>Italic</label>
+        <input type="checkbox" value="italic"   onclick="changeFontStyle(this);" class="italic" name="font-style" required>
+        <br>
+        <label>Bold</label>
+        <input type="checkbox" value="bold"  onclick="changeFontStyle(this);" class="bold" name="font-style">
+        <br>
+        <label>Small Caps</label>
+        <input type="checkbox" value="oblique"  onclick="changeFontStyle(this);" class="small-caps" name="font-style">
+        <br>
+
+
+
+    </div>
+
+
+</form>
+<div>
+    <h1>See Font Styles Here</h1>
+    <p id="text-area">
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    </p>
+</div>
+<script>
+    function changeBackground(element) {
+
+        var className=element.className;
+        if(className=='reset'){
+            document.body.className = '';
+        }else{
+            document.body.className = className;
+        }
+
+
+    }
+
+    function changeTextColor(element) {
+
+        var checkClass='';
+        var className=element.className;
+
+        var text_area=document.getElementById('text-area');
+
+        // var checkboxes = document.getElementsByName('text_color');
+        // checkboxes.forEach((item) => {
+        //     if (item !== element){
+        //         item.checked = false;
+        //         text_area.classList.remove(className);
+        //     }
+        // });
+        if(text_area.className.length > 0){
+
+            var el = document.getElementById('text-area');
+            for (let i = el.classList.length - 1; i >= 0; i--) {
+                const className = el.classList[i];
+                if (className.startsWith('text-')) {
+                    el.classList.remove(className);
+                }
+            }
+                text_area.className += " "+className;
+
+        }else{
+
+                text_area.className = className;
+
+        }
+//alert(text_area.className);
+
+        if(!element.checked){
+            text_area.classList.remove(className);
+        }
+    }
+
+    function changeFontSize(element) {
+
+        var className=element.className;
+
+        var text_area=document.getElementById('text-area');
+
+
+        var checkboxes = document.getElementsByName('font-size');
+        checkboxes.forEach((item) => {
+            if (item !== element){
+                item.checked = false
+            }
+        });
+
+        if(text_area.className.length > 0){
+            var el = document.getElementById('text-area');
+            for (let i = el.classList.length - 1; i >= 0; i--) {
+                const className = el.classList[i];
+                if (className.startsWith('font-')) {
+                    el.classList.remove(className);
+                }
+            }
+                text_area.className += " "+className;
+
+        }else{
+
+                text_area.className = className;
+
+        }
+
+        if(!element.checked){
+            text_area.classList.remove(className);
+        }
+
+
+    }
+
+    function changeFontStyle(element) {
+
+        var className=element.className;
+
+        var text_area=document.getElementById('text-area');
+
+        var checkboxes = document.getElementsByName('font-style');
+        checkboxes.forEach((item) => {
+            if (item !== element){
+                item.checked = false
+            }
+        });
+        if(text_area.className.length > 0){
+            var el = document.getElementById('text-area');
+            for (let i = el.classList.length - 1; i >= 0; i--) {
+                const className = el.classList[i];
+                if (className.startsWith('bold')) {
+                    el.classList.remove(className);
+                }else  if (className.startsWith('italic')) {
+                    el.classList.remove(className);
+                }else  if (className.startsWith('small-caps')) {
+                    el.classList.remove(className);
+                }
+            }
+                text_area.className += " "+className;
+
+        }else{
+
+                text_area.className = className;
+
+        }
+
+        if(!element.checked){
+            text_area.classList.remove(className);
+        }
+
+    }
+</script>
+
+<script>
+var button=document.getElementById('submit_button');
+
+
+button.onclick=function () {
+
+  if(document.getElementById('name').value ==''){
+      document.getElementById('name_error').innerHTML='Please fill name';
+      return false;
+  }else{
+      document.getElementById('name_error').innerHTML='';
+  }
+
+
+    if(document.getElementById('gender_male').checked || document.getElementById('gender_female').checked){
+        document.getElementById('radio_error').innerHTML='';
+    }else{
+
+        document.getElementById('radio_error').innerHTML='Please select gender';
+        return false;
+    }
+
+    if(document.getElementById('studying_no').checked || document.getElementById('studying_yes').checked){
+        document.getElementById('check_error').innerHTML='';
+    }else{
+
+        document.getElementById('check_error').innerHTML='Please yes or no';
+        return false;
+    }
+
+    if(document.getElementById('country').value!=''){
+        document.getElementById('drop_error').innerHTML='';
+    }else{
+
+        document.getElementById('drop_error').innerHTML='Please select country';
+        return false;
+    }
+
+}
+</script>
+</body>
+
+<br/>
+     <br/>
+     <a href="hw7.html">Back to homework 7</a>
+
+
+</html>
