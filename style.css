@@ -1,0 +1,95 @@
+  body, html {
+  height: 100%;
+}
+
+  body {
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+            background-color: #ffffff;
+      }
+      header {
+        background-color: #ffffff;
+        color: #000000;
+        padding: 20px;
+        text-align: center;
+      }
+      main {
+        padding: 20px;
+      }
+      .heading{
+        text-align: center;
+      }
+      .dropdown{
+            margin: 0 auto;
+           
+
+      }
+
+
+/*Responsive css*/
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  /* Adjust font size and line height for small screens */
+  body {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* Adjust margins and padding for small screens */
+  main {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  /* Adjust dropdown width for small screens */
+  .dropdown {
+    width: 100%;
+        margin: 0 auto;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 601px) and (max-width: 992px) {
+  /* Adjust font size and line height for medium screens */
+  body {
+    font-size: 18px;
+    line-height: 1.6;
+  }
+  
+  /* Adjust margins and padding for medium screens */
+  main {
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  /* Adjust dropdown width for medium screens */
+  .dropdown {
+    width: 200px;
+        margin: 0 auto;
+  }
+}
+
+/* Desktop styles */
+@media (min-width: 993px) {
+  /* Adjust font size and line height for large screens */
+  body {
+    font-size: 20px;
+    line-height: 1.7;
+  }
+  
+  /* Adjust margins and padding for large screens */
+  main {
+    margin: 30px;
+    padding: 30px;
+  }
+  
+  /* Adjust dropdown width for large screens */
+  .dropdown {
+    width: 200px;
+        margin: 0 auto;
+  }
+}
+
+   
